@@ -5,8 +5,8 @@ import GoogleMapComponent from '@/components/GoogleMapComponent.vue';
 import WidgetsSidebar from '@/components/WidgetsSidebar.vue';
 
 const selectedLocation = ref({
-  lat: 4.6097,
-  lng: -74.0817, // Centro de Bogotá por defecto
+  lat: 4.5983,
+  lng: -74.0764,
   name: 'Bogotá Centro'
 });
 

@@ -71,10 +71,10 @@ const handleSubmit = () => {
                     class="suggestion-item"
                     @click="selectLocation(suggestion)"
                 >
-                    <span class="suggestion-icon">📍</span>
-                    <div class="suggestion-content">
-                      <div class="suggestion-name">{{ suggestion.name }}</div>
-                      <div class="suggestion-type">{{ suggestion.type.replace('_', ' ') }}</div>
+                <div class="flex space-x-4">
+                      <span class="suggestion-icon">📍</span>
+                      <div>{{ suggestion.name }}, <span class="text-gray-400 text-md">{{ suggestion.type.replace('_', ' ') }}</span></div>
+
                     </div>
                 </div>
             </div>

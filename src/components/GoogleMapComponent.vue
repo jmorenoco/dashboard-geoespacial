@@ -1,11 +1,12 @@
 <script setup>
 import { ref, watch } from 'vue';
-import { GoogleMap, Marker } from 'vue3-google-map';
+import { GoogleMap, Marker, Polyline } from 'vue3-google-map';
+import { routeData } from '@/data/mockData.js';
 
 const props = defineProps({
   selectedLocation: {
     type: Object,
-    default: () => ({ lat: 4.6097, lng: -74.0817 })
+    default: () => ({ lat:  4.5983, lng: -74.0764 })
   }
 });
 
@@ -16,7 +17,8 @@ const apiKey = import.meta.env.VITE_API_KEY_GOOGLE_MAPS;
 const layerVisibility = ref({
   milestones: true,
   pointsOfInterest: true,
-  influenceZones: true
+  influenceZones: true,
+  route: true,
 });
 
 //Observar cambios en la ubicación seleccionada
@@ -37,7 +39,7 @@ watch(() => props.selectedLocation, (newLocation) => {
         <GoogleMap
           :api-key="apiKey"
           :center="center"
-          :zoom="14"
+          :zoom="15"
           style="width: 100%; height: 100%;"
         >
           <Marker
@@ -46,12 +48,29 @@ watch(() => props.selectedLocation, (newLocation) => {
               position: center,
               title: `Ubicación seleccionada: ${props.selectedLocation.name || 'Sin nombre'}`,
             }"
-
           />
+          <Polyline
+            v-if="layerVisibility.route"
+            :options="{
+              path: routeData.routePoints,
+              strokeColor: '#2563eb',
+              strokeOpacity: 0.8,
+              strokeWeight: 6,
+            }" />
         </GoogleMap>
       </div>
       <!-- Map Controls -->
       <div class="map-controls">
+        <div class="control-group">
+          <label class="control-label">
+            <input
+              type="checkbox"
+              class="control-checkbox"
+              v-model="layerVisibility.route"
+            >
+            🛣️ Ruta Principal
+          </label>
+        </div>
         <div class="control-group">
           <label class="control-label">
             <input
