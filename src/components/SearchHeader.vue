@@ -63,6 +63,7 @@ const filteredSuggestions = computed(() => {
   padding: 1rem 2rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   position: relative;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
 }
 
 .header::before {

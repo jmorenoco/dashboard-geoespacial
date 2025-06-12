@@ -1,5 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import { GoogleMap } from 'vue3-google-map';
+
+const center = { lat: 37.7749, lng: -122.4194 };
+const apiKey = import.meta.env.VITE_API_KEY_GOOGLE_MAPS;
+
 
 const layerVisibility = ref({
   milestones: true,
@@ -12,7 +17,12 @@ const layerVisibility = ref({
   <article class="map-section">
     <div class="map-container">
       <div class="map-placeholder">
-
+        <GoogleMap
+          :api-key="apiKey"
+          :center="center"
+          :zoom="14"
+          style="width: 100%; height: 100%;"
+        ></GoogleMap>
       </div>
       <!-- Map Controls -->
       <div class="map-controls">
@@ -50,6 +60,7 @@ const layerVisibility = ref({
     </div>
   </article>
 </template>
+
 <style scoped>
 .map-section {
   flex: 1;
@@ -69,11 +80,9 @@ const layerVisibility = ref({
 .map-placeholder {
   width: 100%;
   height: 100%;
-  background: #e5e7eb; /* Light gray background */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64748b;
   font-size: 1.2rem;
   font-weight: 500;
 }
