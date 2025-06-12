@@ -20,7 +20,7 @@ const filteredSuggestions = computed(() => {
 <template>
   <header class="header">
     <div class="flex flex-col gap-4 lg:flex-row items-center lg:justify-between relative z-10">
-        <div class="flex items-center space-x-6">
+        <div class="flex justify-between items-center space-x-6 w-full lg:w-auto lg:justify-normal">
           <img
             src="@/assets/logo_servinformacion.webp"
             alt="Logo"
@@ -30,7 +30,7 @@ const filteredSuggestions = computed(() => {
             Dashboard Geoespacial
           </h1>
         </div>
-        <div class="search-container">
+        <div class="relative w-full lg:max-w-lg">
             <input
                 type="text"
                 class="search-input"
@@ -73,12 +73,6 @@ const filteredSuggestions = computed(() => {
   right: 0;
   bottom: 0;
   opacity: 0.3;
-}
-
-.search-container {
-  position: relative;
-  max-width: 400px;
-  width: 100%;
 }
 
 .search-input {
