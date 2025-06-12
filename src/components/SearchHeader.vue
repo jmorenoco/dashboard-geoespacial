@@ -1,12 +1,35 @@
 <script setup>
+import { ref, computed } from 'vue';
+import { searchSuggestions } from '@/data/mockData.js';
+
+const searchQuery = ref('');
+const showSuggestions = ref(false);
+
+const handleSearch = () => {
+  showSuggestions.value = searchQuery.value.length > 0;
+};
+
+const filteredSuggestions = computed(() => {
+  if (!searchQuery.value) return [];
+  return searchSuggestions.filter(suggestion =>
+    suggestion.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+  ).slice(0, 5);
+});
 
 </script>
 <template>
   <header class="header">
-    <div class="header-content">
-        <h1>
-          Dashboard Geoespacial
-        </h1>
+    <div class="flex flex-col gap-4 lg:flex-row items-center lg:justify-between relative z-10">
+        <div class="flex items-center space-x-6">
+          <img
+            src="@/assets/logo_servinformacion.webp"
+            alt="Logo"
+            class="h-12 w-auto"
+          />
+          <h1 class="text-xl font-bold text-gray-600">
+            Dashboard Geoespacial
+          </h1>
+        </div>
         <div class="search-container">
             <input
                 type="text"
@@ -52,22 +75,6 @@
   opacity: 0.3;
 }
 
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-
-.header h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .search-container {
   position: relative;
   max-width: 400px;
@@ -88,7 +95,7 @@
 
 .search-input:focus {
   background: white;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7);
 }
 
 .search-icon {
