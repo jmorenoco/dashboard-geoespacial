@@ -1,11 +1,9 @@
 <script setup>
+import DashboardLayout from './views/DashboardLayout.vue';
 </script>
 
 <template>
-  <header>
-    <h1>Hola Mundo</h1>
-  </header>
-
+  <DashboardLayout/>
 </template>
 
 <style scoped>
