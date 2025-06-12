@@ -217,16 +217,16 @@ export const getPointsOfInterestSummary = (points) => {
 
 // Datos para autocompletado de búsqueda (simulando Google Places)
 export const searchSuggestions = [
-  { name: 'Aeropuerto El Dorado', lat: 4.7016, lng: -74.1469, type: 'aeropuerto' },
-  { name: 'Plaza Bolívar', lat: 4.5981, lng: -74.0758, type: 'plaza' },
-  { name: 'Zona Rosa', lat: 4.6097, lng: -74.0817, type: 'zona_comercial' },
-  { name: 'Centro Comercial Andino', lat: 4.6736, lng: -74.0574, type: 'centro_comercial' },
-  { name: 'Universidad Nacional', lat: 4.6356, lng: -74.0833, type: 'universidad' },
-  { name: 'Parque Simón Bolívar', lat: 4.6579, lng: -74.0910, type: 'parque' },
-  { name: 'Terminal de Transporte', lat: 4.6413, lng: -74.1100, type: 'terminal' },
-  { name: 'Maloka', lat: 4.6441, lng: -74.0969, type: 'museo' },
-  { name: 'Salitre Plaza', lat: 4.6516, lng: -74.0920, type: 'centro_comercial' },
-  { name: 'Estadio El Campín', lat: 4.6366, lng: -74.0775, type: 'estadio' }
+  { name: 'Aeropuerto El Dorado', lat: 4.7016, lng: -74.1469, type: 'Aeropuerto' },
+  { name: 'Plaza Bolívar', lat: 4.5981, lng: -74.0758, type: 'Plaza' },
+  { name: 'Zona Rosa', lat: 4.6655763, lng: -74.0565685, type: 'Zona Comercial' },
+  { name: 'Centro Comercial Andino', lat: 4.666965621229094, lng: -74.0518215850157, type: 'Centro Comercial' },
+  { name: 'Universidad Nacional', lat: 4.6356, lng: -74.0833, type: 'Universidad' },
+  { name: 'Parque Simón Bolívar', lat: 4.6579, lng: -74.0910, type: 'Parque' },
+  { name: 'Terminal de Transporte', lat: 4.653338, lng: -74.112472, type: 'Terminal' },
+  { name: 'Maloka', lat: 4.655619931293772, lng: -74.10886108871424, type: 'Museo' },
+  { name: 'Salitre Plaza', lat: 4.653418104973757, lng: -74.1088826776189, type: 'Centro Comercial' },
+  { name: 'Estadio El Campín', lat: 4.644771, lng: -74.07755, type: 'Estadio' }
 ];
 
 // Función utilitaria para calcular distancia entre dos puntos

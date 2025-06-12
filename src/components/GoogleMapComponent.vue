@@ -1,8 +1,15 @@
 <script setup>
-import { ref } from 'vue';
-import { GoogleMap } from 'vue3-google-map';
+import { ref, watch } from 'vue';
+import { GoogleMap, Marker } from 'vue3-google-map';
 
-const center = { lat: 37.7749, lng: -122.4194 };
+const props = defineProps({
+  selectedLocation: {
+    type: Object,
+    default: () => ({ lat: 4.6097, lng: -74.0817 })
+  }
+});
+
+const center = ref(props.selectedLocation);
 const apiKey = import.meta.env.VITE_API_KEY_GOOGLE_MAPS;
 
 
@@ -11,6 +18,16 @@ const layerVisibility = ref({
   pointsOfInterest: true,
   influenceZones: true
 });
+
+//Observar cambios en la ubicación seleccionada
+watch(() => props.selectedLocation, (newLocation) => {
+  if (newLocation && newLocation.lat && newLocation.lng) {
+    center.value = {
+      lat: newLocation.lat,
+      lng: newLocation.lng
+    };
+  }
+}, { deep: true });
 
 </script>
 <template>
@@ -22,7 +39,16 @@ const layerVisibility = ref({
           :center="center"
           :zoom="14"
           style="width: 100%; height: 100%;"
-        ></GoogleMap>
+        >
+          <Marker
+            v-if="center"
+            :options="{
+              position: center,
+              title: `Ubicación seleccionada: ${props.selectedLocation.name || 'Sin nombre'}`,
+            }"
+
+          />
+        </GoogleMap>
       </div>
       <!-- Map Controls -->
       <div class="map-controls">

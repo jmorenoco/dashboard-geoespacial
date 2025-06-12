@@ -2,6 +2,8 @@
 import { ref, computed } from 'vue';
 import { searchSuggestions } from '@/data/mockData.js';
 
+const emit = defineEmits(['location-selected']);
+
 const searchQuery = ref('');
 const showSuggestions = ref(false);
 
@@ -15,6 +17,23 @@ const filteredSuggestions = computed(() => {
     suggestion.name.toLowerCase().includes(searchQuery.value.toLowerCase())
   ).slice(0, 5);
 });
+
+const selectLocation = (suggestion) => {
+  searchQuery.value = suggestion.name;
+  showSuggestions.value = false;
+  emit('location-selected', {
+    lat: suggestion.lat,
+    lng: suggestion.lng,
+    name: suggestion.name,
+    type: suggestion.type
+  });
+};
+
+const handleSubmit = () => {
+    if (filteredSuggestions.value.length > 0) {
+        selectLocation(filteredSuggestions.value[0]);
+    }
+};
 
 </script>
 <template>
@@ -31,6 +50,7 @@ const filteredSuggestions = computed(() => {
           </h1>
         </div>
         <div class="relative w-full lg:max-w-lg">
+          <form @submit.prevent="handleSubmit">
             <input
                 type="text"
                 class="search-input"
@@ -38,6 +58,7 @@ const filteredSuggestions = computed(() => {
                 v-model="searchQuery"
                 @input="handleSearch"
                 @focus="showSuggestions = true"
+                @keydown.esc="showSuggestions = false"
             >
             <span class="search-icon">🔍</span>
             <div
@@ -50,9 +71,14 @@ const filteredSuggestions = computed(() => {
                     class="suggestion-item"
                     @click="selectLocation(suggestion)"
                 >
-                    {{ suggestion.name }}
+                    <span class="suggestion-icon">📍</span>
+                    <div class="suggestion-content">
+                      <div class="suggestion-name">{{ suggestion.name }}</div>
+                      <div class="suggestion-type">{{ suggestion.type.replace('_', ' ') }}</div>
+                    </div>
                 </div>
             </div>
+          </form>
         </div>
     </div>
   </header>

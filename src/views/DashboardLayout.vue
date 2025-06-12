@@ -1,13 +1,26 @@
 <script setup>
+import { ref } from 'vue';
 import SearchHeader from '@/components/SearchHeader.vue';
-import GoogleMap from '@/components/GoogleMapComponent.vue';
+import GoogleMapComponent from '@/components/GoogleMapComponent.vue';
 import WidgetsSidebar from '@/components/WidgetsSidebar.vue';
+
+const selectedLocation = ref({
+  lat: 4.6097,
+  lng: -74.0817, // Centro de Bogotá por defecto
+  name: 'Bogotá Centro'
+});
+
+const handleLocationSelected = (location) => {
+  selectedLocation.value = location;
+  console.log('Ubicación seleccionada:', location);
+};
+
 </script>
 <template>
   <main class="dashboard-layout">
-    <SearchHeader />
+    <SearchHeader @location-selected="handleLocationSelected" />
     <section class="flex flex-[1] overflow-hidden flex-col lg:flex-row">
-      <GoogleMap />
+      <GoogleMapComponent :selected-location="selectedLocation"/>
       <WidgetsSidebar />
     </section>
   </main>
