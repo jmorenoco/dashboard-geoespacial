@@ -89,7 +89,7 @@ const layerVisibility = ref({
 
 .map-controls {
   position: absolute;
-  top: 1rem;
+  bottom: 1rem;
   left: 1rem;
   background: white;
   border-radius: 8px;

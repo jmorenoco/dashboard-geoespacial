@@ -1,6 +1,6 @@
 <script setup>
 import SearchHeader from '@/components/SearchHeader.vue';
-import GoogleMap from '@/components/GoogleMap.vue';
+import GoogleMap from '@/components/GoogleMapComponent.vue';
 import WidgetsSidebar from '@/components/WidgetsSidebar.vue';
 </script>
 <template>
