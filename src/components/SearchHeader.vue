@@ -109,7 +109,6 @@ const handleSubmit = () => {
   border: none;
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
   font-size: 0.9rem;
   outline: none;
   transition: all 0.3s ease;
@@ -169,6 +168,9 @@ const handleSubmit = () => {
   }
   .suggestion-item {
     padding: 0.3rem 0.5rem;
+  }
+  .search-input:focus {
+    box-shadow: none;
   }
 }
 </style>
