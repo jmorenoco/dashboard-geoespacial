@@ -208,22 +208,21 @@ export const generatePointsOfInterest = () => {
 // Datos analíticos para los widgets
 export const analyticsData = {
   ageGroups: [
-    { range: '0-17 años', count: 145, percentage: 15.2, color: '#FF6B6B' },
-    { range: '18-35 años', count: 423, percentage: 44.3, color: '#4ECDC4' },
-    { range: '36-55 años', count: 298, percentage: 31.2, color: '#45B7D1' },
-    { range: '56+ años', count: 89, percentage: 9.3, color: '#96CEB4' }
+    { range: '0-17 años', count: 145, percentage: 30.4, color: '#FF6B6B' },
+    { range: '18-35 años', count: 423, percentage: 88.6, color: '#4ECDC4' },
+    { range: '36-55 años', count: 298, percentage: 62.4, color: '#45B7D1' },
+    { range: '56+ años', count: 89, percentage: 18.6, color: '#96CEB4' }
   ],
 
   socioeconomicLevels: [
-    { class: 'Clase A', count: 67, percentage: 7.0, color: '#2D3436' },
-    { class: 'Clase B', count: 189, percentage: 19.8, color: '#636E72' },
-    { class: 'Clase C', count: 445, percentage: 46.6, color: '#74B9FF' },
-    { class: 'Clase D', count: 198, percentage: 20.7, color: '#A29BFE' },
-    { class: 'Clase E', count: 56, percentage: 5.9, color: '#E84393' }
+    { class: 'Clase A', count: 67, percentage: 16.0, color: '#2D3436' },
+    { class: 'Clase B', count: 189, percentage: 39.6, color: '#636E72' },
+    { class: 'Clase C', count: 445, percentage: 93.2, color: '#74B9FF' },
+    { class: 'Clase D', count: 198, percentage: 41.4, color: '#A29BFE' },
+    { class: 'Clase E', count: 56, percentage: 14, color: '#E84393' }
   ],
-
-  totalVisitors: 955,
-  lastUpdate: new Date().toISOString()
+  lastUpdate: new Date().getDate().toString().padStart(2, '0') + '/' +
+  (new Date().getMonth() + 1).toString().padStart(2, '0') + '/' + new Date().getFullYear(),
 };
 
 // Función para obtener resumen de puntos de interés

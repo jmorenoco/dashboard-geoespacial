@@ -40,12 +40,14 @@ const handleSubmit = () => {
   <header class="header">
     <div class="flex flex-col gap-4 lg:flex-row items-center lg:justify-between relative z-10">
         <div class="flex justify-between items-center space-x-6 w-full lg:w-auto lg:justify-normal">
-          <img
-            src="@/assets/logo_servinformacion.webp"
-            alt="Logo"
-            class="h-12 w-auto"
-          />
-          <h1 class="text-xl font-bold text-gray-600">
+          <a href="https://servinformacion.com/" target="_blank" rel="noopener noreferrer">
+            <img
+              src="@/assets/logo_servinformacion.webp"
+              alt="Logo"
+              class="h-14 w-auto"
+            />
+          </a>
+          <h1 class="text-xl font-bold text-gray-600 text-right lg:text-left">
             Dashboard Geoespacial
           </h1>
         </div>
@@ -71,11 +73,10 @@ const handleSubmit = () => {
                     class="suggestion-item"
                     @click="selectLocation(suggestion)"
                 >
-                <div class="flex space-x-4">
+                  <div class="flex space-x-4">
                       <span class="suggestion-icon">📍</span>
                       <div>{{ suggestion.name }}, <span class="text-gray-400 text-md">{{ suggestion.type.replace('_', ' ') }}</span></div>
-
-                    </div>
+                  </div>
                 </div>
             </div>
           </form>

@@ -1,6 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue';
-import { analyticsData, getPointsOfInterestSummary } from '@/data/mockData.js';
+import { ref, computed, onMounted } from 'vue';
+import { analyticsData, getPointsOfInterestSummary, generatePointsOfInterest } from '@/data/mockData.js';
 
 const pointsOfInterest = ref([]);
 
@@ -8,31 +8,13 @@ const poiSummary = computed(() => {
   return getPointsOfInterestSummary(pointsOfInterest.value);
 });
 
+onMounted(() => {
+  pointsOfInterest.value = generatePointsOfInterest();
+});
+
 </script>
 <template>
 <aside class="sidebar">
-  <!-- <div class="widget">
-    <h3 class="widget-title">📊 Resumen General</h3>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-value">{{ analyticsData.totalVisitors }}</div>
-        <div class="stat-label">Visitantes Totales</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">{{ milestones.length }}</div>
-        <div class="stat-label">Hitos Monitoreados</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">{{ pointsOfInterest.length }}</div>
-        <div class="stat-label">Puntos de Interés</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">{{ influenceZones.length }}</div>
-        <div class="stat-label">Zonas Activas</div>
-      </div>
-    </div>
-  </div> -->
-
   <!-- Age Groups Chart -->
   <div class="widget">
       <h3 class="widget-title">👥 Franjas Etarias</h3>
@@ -54,7 +36,7 @@ const poiSummary = computed(() => {
           </div>
       </div>
       <div class="stat-label" style="text-align: center; margin-top: 1rem;">
-          Visitantes: {{ analyticsData.totalVisitors }}
+          Última actualización: {{ analyticsData.lastUpdate }}
       </div>
   </div>
 
@@ -100,29 +82,6 @@ const poiSummary = computed(() => {
           </div>
       </div>
   </div>
-
-  <!-- Real-time Data
-  <div class="widget">
-      <h3 class="widget-title">⚡ Datos en Tiempo Real</h3>
-      <div class="stats-grid">
-          <div class="stat-card">
-              <div class="stat-value">{{ realtimeData.activeUsers }}</div>
-              <div class="stat-label">Usuarios Activos</div>
-          </div>
-          <div class="stat-card">
-              <div class="stat-value">{{ realtimeData.newVisitors }}</div>
-              <div class="stat-label">Nuevos Visitantes</div>
-          </div>
-      </div>
-      <div class="stat-card" style="margin-top: 1rem;">
-          <div class="stat-value">{{ realtimeData.averageStayTime }}min</div>
-          <div class="stat-label">Tiempo Promedio</div>
-      </div>
-      <div style="margin-top: 1rem; padding: 0.75rem; background: #f0f9ff; border-radius: 6px; border-left: 4px solid #3b82f6;">
-          <div style="font-size: 0.9rem; font-weight: 600; color: #1e40af;">Zona Más Popular</div>
-          <div style="font-size: 0.8rem; color: #3730a3; margin-top: 0.25rem;">{{ realtimeData.popularZone }}</div>
-      </div>
-  </div> -->
 </aside>
 </template>
 <style scoped>
@@ -134,15 +93,17 @@ const poiSummary = computed(() => {
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .widget {
   background: #f8fafc;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
   margin-bottom: 1.5rem;
   border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
 .widget:last-child {
@@ -161,7 +122,7 @@ const poiSummary = computed(() => {
 
 .chart-container {
   position: relative;
-  height: 200px;
+  height: 100%;
 }
 
 .chart-bar {
@@ -267,56 +228,6 @@ const poiSummary = computed(() => {
   font-weight: 600;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.stat-card {
-  background: white;
-  padding: 1rem;
-  border-radius: 6px;
-  border: 1px solid #e5e7eb;
-  text-align: center;
-}
-
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1f2937;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: #6b7280;
-  margin-top: 0.25rem;
-}
-
-.loading {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #3498db;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-}
-
 @media (max-width: 1023px) {
   .sidebar {
     width: 100%;
@@ -327,10 +238,6 @@ const poiSummary = computed(() => {
 
   .widget {
     margin-bottom: 1rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>

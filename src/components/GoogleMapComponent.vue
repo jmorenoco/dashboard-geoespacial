@@ -75,7 +75,7 @@ const closeInfoWindow = () => {
             :options="{
               path: routeData.routePoints,
               strokeColor: '#2563eb',
-              strokeOpacity: 0.8,
+              strokeOpacity: 1,
               strokeWeight: 6,
             }"
           />
@@ -124,7 +124,7 @@ const closeInfoWindow = () => {
           <InfoWindow
             v-if="showInfoWindow && selectedMilestone"
             :options="{
-              position: { lat: selectedMilestone.lat, lng: selectedMilestone.lng }
+              position: { lat: selectedMilestone.lat, lng: selectedMilestone.lng },
             }"
             @closeclick="closeInfoWindow"
           >
@@ -163,7 +163,7 @@ const closeInfoWindow = () => {
               class="control-checkbox"
               v-model="layerVisibility.route"
             >
-            🛣️ Ruta Principal
+            🛣️ &nbsp; Ruta Principal
           </label>
         </div>
         <div class="control-group">
@@ -173,7 +173,7 @@ const closeInfoWindow = () => {
               class="control-checkbox"
               v-model="layerVisibility.milestones"
             >
-            🔴 Hitos Kilométricos
+            🔴 &nbsp; Hitos Kilométricos
           </label>
         </div>
         <div class="control-group">
@@ -183,7 +183,7 @@ const closeInfoWindow = () => {
               class="control-checkbox"
               v-model="layerVisibility.pointsOfInterest"
             >
-            ⚫ Puntos de Interés
+            ⚫ &nbsp; Puntos de Interés
           </label>
         </div>
         <div class="control-group">
@@ -193,7 +193,7 @@ const closeInfoWindow = () => {
               class="control-checkbox"
               v-model="layerVisibility.influenceZones"
             >
-            ⭕ Zonas de Influencia
+            ⭕ &nbsp; Zonas de Influencia
           </label>
         </div>
       </div>
@@ -263,7 +263,7 @@ const closeInfoWindow = () => {
 
 .info-window-content {
   max-width: 350px;
-  padding: 1rem;
+  padding: 0rem 1rem 1rem 1rem;
 }
 
 .info-title {
