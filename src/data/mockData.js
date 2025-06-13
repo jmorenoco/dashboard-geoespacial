@@ -34,8 +34,8 @@ export const routeData = {
 export const milestones = [
   {
     id: 1,
-    lat: 4.7016,
-    lng: -74.1469,
+    lat: 4.69181633932677,
+    lng: -74.1338132098196,
     kilometer: 0,
     name: "Km 0 - Aeropuerto El Dorado",
     estimatedFlow: 245,
@@ -44,83 +44,113 @@ export const milestones = [
   },
   {
     id: 2,
-    lat: 4.6950,
-    lng: -74.1300,
+    lat: 4.687003992679049,
+    lng: -74.12818121846443,
     kilometer: 2.1,
-    name: "Km 2.1 - Av. El Dorado",
+    name: "Km 1.1 - Av. El Dorado",
     estimatedFlow: 180,
-    description: "Intersección principal Av. El Dorado",
+    description: "Av. El Dorado - Carrera 100",
     peopleCount: 89
   },
   {
     id: 3,
-    lat: 4.6800,
-    lng: -74.1200,
-    kilometer: 4.3,
-    name: "Km 4.3 - Fontibón",
-    estimatedFlow: 320,
-    description: "Zona comercial Fontibón",
-    peopleCount: 234
+    lat: 4.6828337483601485,
+    lng: -74.12260733580672,
+    kilometer: 3.5,
+    name: "Km 2.4 - Av. El Dorado",
+    estimatedFlow: 210,
+    description: "Connecta 26",
+    peopleCount: 200
   },
   {
     id: 4,
-    lat: 4.6650,
-    lng: -74.1100,
-    kilometer: 6.8,
-    name: "Km 6.8 - Av. de las Américas",
-    estimatedFlow: 425,
-    description: "Cruce Av. de las Américas",
-    peopleCount: 312
+    lat: 4.666281769973999,
+    lng: -74.11156732977838,
+    kilometer: 5.8,
+    name: "Km 4.3 - Av. El Dorado",
+    estimatedFlow: 300,
+    description: "Av. Boyaca - Av. El Dorado",
+    peopleCount: 320
   },
   {
     id: 5,
-    lat: 4.6500,
-    lng: -74.1000,
-    kilometer: 9.2,
-    name: "Km 9.2 - Kennedy",
-    estimatedFlow: 380,
-    description: "Centro comercial Kennedy",
-    peopleCount: 198
+    lat: 4.650235437262865,
+    lng: -74.10148700448049,
+    kilometer: 7.2,
+    name: "Km 6.6 - Av. El Dorado",
+    estimatedFlow: 400,
+    description: "C.C. Gran Estación - Av. El Dorado",
+    peopleCount: 450
   },
   {
     id: 6,
-    lat: 4.6350,
-    lng: -74.0950,
-    kilometer: 11.5,
-    name: "Km 11.5 - Puente Aranda",
-    estimatedFlow: 290,
-    description: "Zona industrial Puente Aranda",
-    peopleCount: 167
+    lat: 4.6350561374506185,
+    lng: -74.09158797964736,
+    kilometer: 9.0,
+    name: "Km 8.0 - Av. El Dorado",
+    estimatedFlow: 500,
+    description: "Embajada EEUU - Av. El Dorado",
+    peopleCount: 600
   },
   {
     id: 7,
-    lat: 4.6200,
-    lng: -74.0900,
-    kilometer: 13.8,
-    name: "Km 13.8 - Av. NQS",
-    estimatedFlow: 510,
-    description: "Avenida NQS - Alto tráfico",
-    peopleCount: 445
+    lat: 4.6324841015452565,
+    lng: -74.08516908648986,
+    kilometer: 10.2,
+    name: "Km 9.2 - Universidad Nacional",
+    estimatedFlow: 350,
+    description: "Universidad Nacional - Av. El Dorado",
+    peopleCount: 280
   },
   {
     id: 8,
-    lat: 4.6050,
-    lng: -74.0850,
-    kilometer: 16.1,
-    name: "Km 16.1 - Zona Rosa",
-    estimatedFlow: 650,
-    description: "Zona Rosa - Centro financiero",
-    peopleCount: 523
+    lat: 4.614525544721422,
+    lng: -74.07233866582362,
+    kilometer: 12.5,
+    name: "Km 11.5 - Calle 26",
+    estimatedFlow: 220,
+    description: "Estación Transmilenio - Calle 26",
+    peopleCount: 150
   },
   {
     id: 9,
-    lat: 4.5981,
-    lng: -74.0758,
-    kilometer: 18.5,
-    name: "Km 18.5 - Centro Histórico",
-    estimatedFlow: 720,
-    description: "Plaza Bolívar - Destino final",
-    peopleCount: 612
+    lat: 4.612687046494818,
+    lng: -74.07151822572699,
+    kilometer: 13.0,
+    name: "Km 12.0 - Carrera 13",
+    estimatedFlow: 180,
+    description: "Av. El Dorado - Carrera 13",
+    peopleCount: 120
+  },
+  {
+    id: 10,
+    lat: 4.608037036971052,
+    lng: -74.07532915581763,
+    kilometer: 14.2,
+    name: "Km 13.2 - Av. 19",
+    estimatedFlow: 400,
+    description: "Carrera 13 - Avenida 19",
+    peopleCount: 500
+  },
+  {
+    id: 11,
+    lat: 4.605662900590511,
+    lng: -74.07230669405709,
+    kilometer: 15.0,
+    name: "Km 14.0 - Centro",
+    estimatedFlow: 600,
+    description: "Avenida 19 - Carrera 8",
+    peopleCount: 700
+  },
+  {
+    id: 12,
+    lat: 4.5983,
+    lng: -74.0764,
+    kilometer: 16.0,
+    name: "Km 15.0 - Plaza Bolívar",
+    estimatedFlow: 800,
+    description: "Plaza Bolívar - Centro Histórico",
+    peopleCount: 900
   }
 ];
 
