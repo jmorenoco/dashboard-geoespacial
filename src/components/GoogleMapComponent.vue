@@ -2,6 +2,8 @@
 import { ref, watch, onMounted } from 'vue';
 import { Circle, GoogleMap, Marker, Polyline, InfoWindow } from 'vue3-google-map';
 import { generateInfluenceZones, generatePointsOfInterest, routeData, milestones } from '@/data/mockData.js';
+import RedPoint from '@/assets/red_point.png';
+import BlackPoint from '@/assets/black_point.png';
 
 const props = defineProps({
   selectedLocation: {
@@ -87,7 +89,7 @@ const closeInfoWindow = () => {
                 position: { lat: milestone.lat, lng: milestone.lng },
                 title: `Hito ${milestone.id}`,
                 icon: {
-                  url: '/src/assets/red_dot.png',
+                  url: RedPoint,
                 },
               }"
               @click="handleMilestoneClick(milestone)"
@@ -101,7 +103,7 @@ const closeInfoWindow = () => {
                 position: { lat: poi.lat, lng: poi.lng },
                 title: poi.name,
                 icon: {
-                  url: '/src/assets/dot.png',
+                  url: BlackPoint,
                 },
               }"
             />
