@@ -35,7 +35,7 @@ onMounted(() => {
               </div>
           </div>
       </div>
-      <div class="stat-label" style="text-align: center; margin-top: 1rem;">
+      <div class="text-sm text-center mt-3 md:mt-4">
           Última actualización: {{ analyticsData.lastUpdate }}
       </div>
   </div>
@@ -239,5 +239,11 @@ onMounted(() => {
   .widget {
     margin-bottom: 1rem;
   }
+
+  .poi-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
 }
 </style>

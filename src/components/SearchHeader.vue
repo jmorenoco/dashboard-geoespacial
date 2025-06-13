@@ -38,16 +38,16 @@ const handleSubmit = () => {
 </script>
 <template>
   <header class="header">
-    <div class="flex flex-col gap-4 lg:flex-row items-center lg:justify-between relative z-10">
+    <div class="flex flex-col gap-1 md:gap-4 lg:flex-row items-center lg:justify-between relative z-10">
         <div class="flex justify-between items-center space-x-6 w-full lg:w-auto lg:justify-normal">
           <a href="https://servinformacion.com/" target="_blank" rel="noopener noreferrer">
             <img
               src="@/assets/logo_servinformacion.webp"
               alt="Logo"
-              class="h-14 w-auto"
+              class="h-12 lg:h-14 w-auto"
             />
           </a>
-          <h1 class="text-xl font-bold text-gray-600 text-right lg:text-left">
+          <h1 class="text-sm lg:text-xl font-bold text-gray-600 text-right lg:text-left">
             Dashboard Geoespacial
           </h1>
         </div>
@@ -155,5 +155,14 @@ const handleSubmit = () => {
 
 .suggestion-item:last-child {
   border-bottom: none;
+}
+
+@media (max-width: 1023px) {
+  .header {
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  }
 }
 </style>

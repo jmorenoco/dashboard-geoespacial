@@ -87,7 +87,7 @@ const closeInfoWindow = () => {
                 position: { lat: milestone.lat, lng: milestone.lng },
                 title: `Hito ${milestone.id}`,
                 icon: {
-                  url: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                  url: '/src/assets/red_dot.png',
                 },
               }"
               @click="handleMilestoneClick(milestone)"
@@ -101,7 +101,7 @@ const closeInfoWindow = () => {
                 position: { lat: poi.lat, lng: poi.lng },
                 title: poi.name,
                 icon: {
-                  url: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                  url: '/src/assets/dot.png',
                 },
               }"
             />
@@ -113,9 +113,9 @@ const closeInfoWindow = () => {
               :options="{
                 center: zone.center,
                 radius: zone.radius,
-                fillColor: '#10b981',
+                fillColor: '#00ad03',
                 fillOpacity: 0.1,
-                strokeColor: '#10b981',
+                strokeColor: '#00ad03',
                 strokeOpacity: 0.6,
                 strokeWeight: 2,
               }"
@@ -163,7 +163,7 @@ const closeInfoWindow = () => {
               class="control-checkbox"
               v-model="layerVisibility.route"
             >
-            🛣️ &nbsp; Ruta Principal
+            📉 &nbsp; Ruta Principal
           </label>
         </div>
         <div class="control-group">
@@ -193,7 +193,7 @@ const closeInfoWindow = () => {
               class="control-checkbox"
               v-model="layerVisibility.influenceZones"
             >
-            ⭕ &nbsp; Zonas de Influencia
+            🟢 &nbsp; Zonas de Influencia
           </label>
         </div>
       </div>
@@ -298,6 +298,19 @@ const closeInfoWindow = () => {
 @media (max-width: 1023px) {
   .map-section {
     display: contents;
+  }
+  .map-placeholder {
+    height: 55vh;
+  }
+  .map-controls {
+    bottom: 0.5rem;
+    padding: .5rem;
+  }
+  .control-group {
+    margin-bottom: 0.2rem;
+  }
+  .control-label {
+    font-size: 0.8rem;
   }
 }
 </style>
