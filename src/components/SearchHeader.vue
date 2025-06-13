@@ -75,7 +75,7 @@ const handleSubmit = () => {
                 >
                   <div class="flex space-x-4">
                       <span class="suggestion-icon">📍</span>
-                      <div>{{ suggestion.name }}, <span class="text-gray-400 text-md">{{ suggestion.type.replace('_', ' ') }}</span></div>
+                      <div class="text-xs lg:text-base">{{ suggestion.name }}, <span class="text-gray-400 text-xs lg:text-md">{{ suggestion.type.replace('_', ' ') }}</span></div>
                   </div>
                 </div>
             </div>
@@ -163,6 +163,12 @@ const handleSubmit = () => {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     position: relative;
     background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  }
+  .suggestions {
+    max-height: 150px;
+  }
+  .suggestion-item {
+    padding: 0.3rem 0.5rem;
   }
 }
 </style>

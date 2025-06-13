@@ -312,5 +312,9 @@ const closeInfoWindow = () => {
   .control-label {
     font-size: 0.8rem;
   }
+  .info-window-content {
+    max-width: 350px;
+    padding: 0rem;
+  }
 }
 </style>
